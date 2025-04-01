@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Binhex
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+
+    <!-- TODO
+    <record model="db.backup.fs.file" id="db_backup_fs_file_demo_1">
+       <field name="name">...</field>
+    </record>
+    -->
+
+</odoo>

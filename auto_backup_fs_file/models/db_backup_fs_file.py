@@ -14,6 +14,6 @@ class DbBackupFsFile(models.Model):
     db_backup_id = fields.Many2one("db.backup", string="DB Backup", required=True)
     backup_file = fs_fields.FSFile(
         string="Backup File",
-        required=True,
+        required=False,
         help="The file that contains the database backup",
     )

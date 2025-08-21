@@ -65,12 +65,12 @@ network drives, or other custom filesystems supported by ``fsspec``.
 
 Practical examples include:
 
--  Backing up Odoo data to cloud storage providers like AWS S3, Google
-   Cloud Storage, or Azure Blob Storage.
--  Storing backups on a secure local or remote filesystem for disaster
-   recovery purposes.
--  Automating backup processes in multi-environment setups, such as
-   multi-company or multi-website configurations.
+- Backing up Odoo data to cloud storage providers like AWS S3, Google
+  Cloud Storage, or Azure Blob Storage.
+- Storing backups on a secure local or remote filesystem for disaster
+  recovery purposes.
+- Automating backup processes in multi-environment setups, such as
+  multi-company or multi-website configurations.
 
 APPROACH: The module extends the backup functionality from the
 ``auto_backup`` module by introducing a method that allows storing the
@@ -85,10 +85,10 @@ or further processing.
 
 USEFUL INFORMATION:
 
--  **Dependencies**: This module depends on the ``fsspec`` library, its
-   relevant filesystem implementations, and the ``fs_file`` addon from
-   OCA/storage. Ensure the required ``fsspec`` plugins are installed for
-   your target filesystem.
+- **Dependencies**: This module depends on the ``fsspec`` library, its
+  relevant filesystem implementations, and the ``fs_file`` addon from
+  OCA/storage. Ensure the required ``fsspec`` plugins are installed for
+  your target filesystem.
 
 Installation
 ============
@@ -103,35 +103,36 @@ Configuration
    module, ensure you have reviewed the documentation for the following
    modules:
 
--  ``fs_attachment``
--  ``fs_storage`` These modules provide the necessary setup for file
-   storage and attachment handling.
+- ``fs_attachment``
+- ``fs_storage`` These modules provide the necessary setup for file
+  storage and attachment handling.
 
 2. **Configure File Storage**
 
--  Navigate to **Settings** > **Technical** > **FS Storage**.
--  Create or select an existing storage configuration.
--  Ensure the storage is properly set up and tested for accessibility.
+- Navigate to **Settings** > **Technical** > **FS Storage**.
+- Create or select an existing storage configuration.
+- Ensure the storage is properly set up and tested for accessibility.
 
 3. **Link Backup File field to Storage**
 
--  While configuring the file storage in **Settings** > **Technical** >
-   **FS Storage**, ensure that the ``backup_file`` from the
-   ``db.backup.fs.file`` model is listed under the ``Field`` field.
--  This step is part of the storage configuration process.
--  Save the changes after verifying the setup.
+- While configuring the file storage in **Settings** > **Technical** >
+  **FS Storage**, ensure that the ``backup_file`` from the
+  ``db.backup.fs.file`` model is listed under the ``Field`` field.
+- This step is part of the storage configuration process.
+- Save the changes after verifying the setup.
 
-.. image:: https://raw.githubusercontent.com/OCA/server-tools/17.0/auto_backup_fs_file/images/file_storage_configuration.png
-   :alt: Example of File Storage Configuration
+|Example of File Storage Configuration|
 
 4. **Verify Configuration**
 
--  Perform a test backup to ensure the files are being stored in the
-   correct location.
--  Check the logs for any errors or warnings.
+- Perform a test backup to ensure the files are being stored in the
+  correct location.
+- Check the logs for any errors or warnings.
 
 By following these steps, you will ensure that the module is properly
 configured for storing backups in the desired file storage system.
+
+.. |Example of File Storage Configuration| image:: https://raw.githubusercontent.com/OCA/server-tools/17.0/auto_backup_fs_file/images/file_storage_configuration.png
 
 Usage
 =====
@@ -174,24 +175,24 @@ How to Use the Module
 4. Manage Fs File Backups
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  In the Fs File backups list view, you can see details such as the
-   backup filename and associated database backup configuration.
--  Use this view to manage or download backups as needed.
+- In the Fs File backups list view, you can see details such as the
+  backup filename and associated database backup configuration.
+- Use this view to manage or download backups as needed.
 
 Screenshots
 ~~~~~~~~~~~
 
--  **Backup Configuration Form View** |Backup Configuration Form|
+- **Backup Configuration Form View** |Backup Configuration Form|
 
--  **Fs File Backups List View** |Fs File Backups List|
+- **Fs File Backups List View** |Fs File Backups List|
 
 Notes
 ~~~~~
 
--  Ensure that the FSSPEC storage is properly configured before using
-   the **Fs File** method.
--  This module adds a new stat button in the backup configuration form
-   view to quickly access Fs File backups.
+- Ensure that the FSSPEC storage is properly configured before using the
+  **Fs File** method.
+- This module adds a new stat button in the backup configuration form
+  view to quickly access Fs File backups.
 
 .. |Backup Configuration Form| image:: https://raw.githubusercontent.com/OCA/server-tools/17.0/auto_backup_fs_file/static/description/db_backup_form_view.png
 .. |Fs File Backups List| image:: https://raw.githubusercontent.com/OCA/server-tools/17.0/auto_backup_fs_file/static/description/db_backup_fs_file_tree_view.png
@@ -217,14 +218,14 @@ Authors
 Contributors
 ------------
 
--  Rolando Pérez Rebollo r.perez@binhex.cloud
+- Rolando Pérez Rebollo r.perez@binhex.cloud
 
 Other credits
 -------------
 
 The development of this module has been financially supported by:
 
--  Binhex
+- Binhex
 
 Maintainers
 -----------

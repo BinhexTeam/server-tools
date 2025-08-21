@@ -2,8 +2,9 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-from odoo.fields import Command
 from odoo.service import db
+
+from odoo.addons.fs_file.fields import FSFileValue
 
 
 class DbBackup(models.Model):
@@ -33,25 +34,19 @@ class DbBackup(models.Model):
         dbname = self.env.cr.dbname
         for fs_backup in fs_backups:
             with fs_backup.backup_log():
-                # Get the base64-encoded string from db.exp_dump
-                temp_file = db.exp_dump(dbname, fs_backup.backup_format)
-
-                # Convert the base64-encoded string to bytes
-                temp_file_bytes = temp_file.encode("utf-8")
-
-                # Create the backup record
-                fs_backup.fs_file_backup_ids = [
-                    Command.create(
-                        {
-                            "name": (
-                                f"{dbname}-{fields.Date.today()}.{fs_backup.backup_format}"
-                            ),
-                            "db_backup_id": fs_backup.id,
-                            "backup_file": temp_file_bytes,  # Pass base64-encoded bytes
-                        }
-                    )
-                ]
-
+                name = f"{dbname}-{fields.Date.today()}.{fs_backup.backup_format}"
+                backup = self.env["db.backup.fs.file"].create(
+                    {
+                        "name": name,
+                        "db_backup_id": fs_backup.id,
+                        "backup_file": FSFileValue(
+                            name=name,
+                            value=b"init file",
+                        ),
+                    }
+                )
+                with backup.backup_file.open("wb") as f:
+                    db.dump_db(dbname, f, fs_backup.backup_format)
         res = super().action_backup()
         return res
 
